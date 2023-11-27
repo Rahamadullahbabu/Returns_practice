@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoreFunctions</title>
+</head>
+
+<body>
+    <h1>JavaScript Return Functions</h1>
+
+    <div id="output"></div>
+
+    <script>
+        //1.Check if a Number is Prime
+        function isPrime(number) {
+            if (number <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //2.Count Vowels in a String
+        function countVowels(str) {
+            const vowels = "aeiouAEIOU";
+            let count = 0;
+            for (let char of str) {
+                if (vowels.includes(char)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        //3.Generate Fibonacci Sequence
+        function generateFibonacci(n) {
+            const fibonacciArray = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fibonacciArray[i] = fibonacciArray[i - 1] + fibonacciArray[i - 2];
+            }
+            return fibonacciArray;
+        }
+
+        //4.Calculate Average of an Array
+        function calculateAverage(numbers) {
+            const sum = numbers.reduce((acc, num) => acc + num, 0);
+            return sum / numbers.length;
+        }
+
+        //5.Capitalize the First Letter of Each Word in a String
+        function capitalizeWords(str) {
+            return str
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+        }
+
+        //6.Check if a Year is a Leap Year
+        function isLeapYear(year) {
+            return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        }
+
+        //7.Calculate Factorial with Iteration
+        function calculateFactorialIterative(n) {
+            let result = 1;
+            for (let i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        //8.Extract Digits of a Number
+        function extractDigits(number) {
+            return number.toString().split("").map(Number);
+        }
+
+        //9.Find the Sum of Natural Numbers
+        function sumOfNaturalNumbers(n) {
+            return (n * (n + 1)) / 2;
+        }
+
+        //10.Check if a String is a Palindrome
+        function isPalindrome(str) {
+            const cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+            const reversedStr = cleanStr.split("").reverse().join("");
+            return cleanStr === reversedStr;
+        }
+
+        // Display the results
+        document.getElementById("output").innerHTML += `
+      1. isPrime(17): ${isPrime(17)}<br>
+      2. countVowels('Hello, World!'): ${countVowels("Hello, World!")}<br>
+      3. generateFibonacci(8): ${generateFibonacci(8)}<br>
+      4. calculateAverage([2, 4, 6, 8, 10]): ${calculateAverage([2, 4, 6, 8, 10,])}<br>
+      5. capitalizeWords('javascript is awesome'): ${capitalizeWords("javascript is awesome")}<br>
+      6. isLeapYear(2024): ${isLeapYear(2024)}<br>
+      7. calculateFactorialIterative(6): ${calculateFactorialIterative(6)}<br>
+      8. extractDigits(12345): ${extractDigits(12345)}<br>
+      9. sumOfNaturalNumbers(10): ${sumOfNaturalNumbers(10)}<br>
+      10. isPalindrome('A man, a plan, a canal, Panama!'): ${isPalindrome("A man, a plan, a canal, Panama!")}<br>
+    `;
+    </script>
+</body>
+
+</html>
